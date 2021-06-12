@@ -1,51 +1,41 @@
 import React from "react";
-import { Image } from "react-native";
-import { BlurView } from "expo-blur";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../screens/Home";
-import ReviewDetails from "../screens/ReviewDetails";
+import { Image } from "react-native";
+import About from "../screens/About";
 import Header from "../shared/Header";
 
 const { Navigator, Screen } = createStackNavigator();
 
-const HomeStack = () => (
+const AboutStack = () => (
   <Navigator
-    initialRouteName="Home"
+    headerMode="screen"
+    initialRouteName="About"
     screenOptions={{
+      headerStyle: { backgroundColor: "#3fc" },
       headerTintColor: "#9a1500",
     }}
   >
     <Screen
-      name="Home"
-      component={Home}
+      name="About"
+      component={About}
       options={({ navigation }) => {
         return {
           headerTitle: () => (
-            <Header navigation={navigation} title="GameZone" />
+            <Header navigation={navigation} title="About GameZone" />
           ),
-
           headerBackground: () => (
             <Image
               source={require("../assets/game_bg.png")}
-              style={{
-                height: "100%",
-              }}
+              style={{ height: "100%" }}
             />
           ),
           headerStyle: {
-            height: 80,
+            height: 90,
           },
         };
-      }}
-    />
-    <Screen
-      name="Details"
-      component={ReviewDetails}
-      options={{
-        title: "Review Details",
       }}
     />
   </Navigator>
 );
 
-export default HomeStack;
+export default AboutStack;

@@ -1,17 +1,41 @@
 import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { globalStyles } from "../styles/global";
+import Card from "../shared/Card";
+
 export default function ReviewDetails({ route, navigation }) {
+  const { title, body, rating } = route.params;
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.titleText}>{route.params.title}</Text>
-      <Text style={globalStyles.titleText}>{route.params.rating}</Text>
-      <Text style={globalStyles.titleText}>{route.params.body}</Text>
-      <Button
-        title="Go to Home"
-        onPress={() => navigation.navigate("Home")}
-        color="#DB2469"
-      />
+      <Card>
+        <Text>{title}</Text>
+        <Text>{body}</Text>
+        <View style={styles.rating}>
+          <Text>GameZone Rating : </Text>
+          <View style={styles.heart}>
+            {Array(rating)
+              .fill()
+              .map((item, index) => (
+                <Image source={require("../assets/rating-1.png")} key={index} />
+              ))}
+          </View>
+        </View>
+      </Card>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  rating: {
+    flexDirection: "row",
+    marginVertical: 10,
+    justifyContent: "center",
+    paddingTop: 16,
+    marginTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: "#eee",
+  },
+  heart: {
+    flexDirection: "row",
+  },
+});
