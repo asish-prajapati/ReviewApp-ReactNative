@@ -8,12 +8,12 @@ export default function ReviewDetails({ route, navigation }) {
   return (
     <View style={globalStyles.container}>
       <Card>
-        <Text>{title}</Text>
-        <Text>{body}</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.body}>{body}</Text>
         <View style={styles.rating}>
-          <Text>GameZone Rating : </Text>
+          <Text style={styles.ratingText}>GameZone Rating : </Text>
           <View style={styles.heart}>
-            {Array(rating)
+            {Array(+rating)
               .fill()
               .map((item, index) => (
                 <Image source={require("../assets/rating-1.png")} key={index} />
@@ -37,5 +37,20 @@ const styles = StyleSheet.create({
   },
   heart: {
     flexDirection: "row",
+  },
+  title: {
+    fontSize: 22,
+    textTransform: "capitalize",
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+  body: {
+    fontSize: 18,
+    color: "grey",
+    marginTop: 20,
+  },
+  ratingText: {
+    color: "maroon",
+    paddingHorizontal: 5,
   },
 });

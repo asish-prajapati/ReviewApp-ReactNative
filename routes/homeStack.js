@@ -24,16 +24,13 @@ const HomeStack = () => (
             <Header navigation={navigation} title="GameZone" />
           ),
 
-          headerBackground: () => (
-            <Image
-              source={require("../assets/game_bg.png")}
-              style={{
-                height: "100%",
-              }}
-            />
-          ),
           headerStyle: {
             height: 80,
+          },
+          headerTitleContainerStyle: {
+            left: 0,
+            right: 0,
+            top: 0,
           },
         };
       }}
