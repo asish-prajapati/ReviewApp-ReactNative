@@ -15,7 +15,7 @@ import Card from "../shared/Card";
 import ReviewForm from "./ReviewForm";
 
 export default function Home({ navigation }) {
-  const [modelOpen, setModelOpen] = useState(true);
+  const [modelOpen, setModelOpen] = useState(false);
   const [reviews, setReviews] = useState([
     {
       title: "zelda , breath of fresh air ",
